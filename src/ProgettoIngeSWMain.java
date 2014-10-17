@@ -3,7 +3,8 @@ public class ProgettoIngeSWMain {
 
 	public static void main(String[] args) {
 		
-		Modello mod = new Modello();
+		
+		/*Modello mod = new Modello();
 		mod.creaNodoIniziale();
 		mod.creaAzione(null);
 		mod.creaAzione(null);
@@ -22,7 +23,7 @@ public class ProgettoIngeSWMain {
 		
 		// COMMENTO DI TEST PER GITHUB
 		// MODIFICATO DA REDS
-
+		*/
 	}
 
 }
