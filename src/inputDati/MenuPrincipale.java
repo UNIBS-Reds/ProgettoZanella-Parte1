@@ -185,30 +185,21 @@ public class MenuPrincipale {
 	/**
 	 * Inserimento nuovo modello (ozpione 1)
 	 */
-	private static void inserimentoNuovoModello() {
-		boolean sovrascrivi = false;
+	private static void inserimentoNuovoModello() {		
+		boolean esci = false;
+		//Se c'e' gia' un modello chiede di sovrascriverlo.
 		if(Modello.isNull() == false)
-			sovrascrivi = Util.yesOrNo(MSG_MODELLO_ESISTENTE);
-		else {
-			String nome_modello = Util.leggiStringPiena(MSG_NOME_MODELLO);
-			String descrizione_modello = Util.leggiStringPiena(MSG_DESCRIZIONE_MODELLO);
-			Modello m = Modello.getInstance();
-			m.setNome(nome_modello);
-			m.setDescrizione(descrizione_modello);
-			NodoIniziale ni = new NodoIniziale();
-			m.addEntita(ni);
-			m.getGm().menuInserimentoPrimario();
-		}
-		if(sovrascrivi) {
-			Modello.cambiaModello(null);
-			Modello nuovo = Modello.getInstance();
-			String nome_modello = Util.leggiString(MSG_NOME_MODELLO);
-			String descrizione_modello = Util.leggiString(MSG_DESCRIZIONE_MODELLO);
-			nuovo.setNome(nome_modello);
-			nuovo.setDescrizione(descrizione_modello);
-			NodoIniziale ni = new NodoIniziale();
-			nuovo.addEntita(ni);
-			nuovo.getGm().menuInserimentoPrimario();
+			if(Util.yesOrNo(MSG_MODELLO_ESISTENTE))
+				Modello.cambiaModello(null);
+			else 
+				esci = true;
+				
+		//Se l'utente non ha rifiutato di sovrascrivere il vecchio modello, ne crea uno nuovo.
+		if(!esci) {
+			Modello.getInstance().setNome(Util.leggiStringPiena(MSG_NOME_MODELLO));
+			Modello.getInstance().setDescrizione(Util.leggiStringPiena(MSG_DESCRIZIONE_MODELLO));
+			Modello.getInstance().addToElencoEntita(new NodoIniziale());
+			Modello.getInstance().getGm().gestisciMenuInserimentoPrimario();
 		}
 	}
 	
