@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  * Classe Report.
- * Un'istanza della classe Report è una struttura contenente tutti i dati 
+ * Un'istanza della classe Report e' una struttura contenente tutti i dati 
  * forniti in input dall'utente e tutti i risultati ottenuti come output 
  * dell'elaborazione. Il Report viene generato in base al Modello, al Test 
  * Suite e alle diagnosi correntemente inserite.
