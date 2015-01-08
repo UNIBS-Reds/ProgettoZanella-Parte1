@@ -517,14 +517,16 @@ public class MenuPrincipale {
 			else
 				System.out.println(MSG_CARICAMENTO_ANNULLATO);
 		}
-		Modello modCorrente = Modello.getInstance();
-		TestSuite tsCorrente = TestSuite.getInstance();
 		if(sovrascriviReport || repCorrente == null)
 		{
 			Report.cambiaReport(repCaricato);
 			if(repCaricato!=null) {
-				System.out.println(String.format(MSG_REPORT_CARICATO,repCaricato.getNome()));
-				if(!modCorrente.getNome().equals(repCaricato.getModello().getNome()) || !tsCorrente.isEqual(repCaricato.getTS()))
+				System.out.println(String.format(MSG_REPORT_CARICATO,repCaricato.getNomeReport()));
+				if(!(Modello.isNull()) && !(TestSuite.isNull())) {
+					if(!Modello.getInstance().getNome().equals(repCaricato.getModello().getNome()) || !TestSuite.getInstance().isEqual(repCaricato.getTS())) 
+						System.out.println(MSG_SEGNALAZIONE_REPORT);
+				}
+				else if(!Modello.isNull() && !Modello.getInstance().getNome().equals(repCaricato.getModello().getNome()))
 					System.out.println(MSG_SEGNALAZIONE_REPORT);
 			}
 		}
