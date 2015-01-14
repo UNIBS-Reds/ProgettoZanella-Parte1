@@ -11,6 +11,7 @@ import gestioneTS.TestSuite;
 import java.io.File;
 import java.util.Vector;
 
+import statisticheGuasti.Distanze;
 import statisticheGuasti.OrdinaElencoProbabilitaEIntervalliPosizione;
 import statisticheGuasti.ProbabilitaMetodo1;
 import statisticheGuasti.ProbabilitaMetodo2;
@@ -332,7 +333,8 @@ public class MenuPrincipale {
 				ProbabilitaMetodo1.stampaRisultati(d.eseguiDiagnosiMetodo1());
 				ProbabilitaMetodo2.stampaRisultati(d.eseguiDiagnosiMetodo2());
 				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo1() );
-				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo2() );
+				//OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo2() );
+				//Distanze distanza = new Distanze(OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo1()), OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo2()));
 			}
 		}
 	}
