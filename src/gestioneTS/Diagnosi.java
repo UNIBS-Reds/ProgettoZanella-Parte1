@@ -5,7 +5,6 @@ package gestioneTS;
 
 import java.io.Serializable;
 import java.util.Vector;
-
 import statisticheGuasti.ProbabilitaMetodo1;
 import statisticheGuasti.ProbabilitaMetodo2;
 import gestioneModello.Azione;

@@ -4,7 +4,6 @@
 package statisticheGuasti;
 
 import gestioneTS.TestSuite;
-
 import java.util.Vector;
 import java.io.Serializable;
 
@@ -84,10 +83,10 @@ public class ProbabilitaMetodo1 implements Serializable
 	public static void stampaRisultati(Vector<Float> risultato) {
 		System.out.println("RISULTATO PROBABILITA' CON METODO 1");
 		for(int i=0; i<risultato.size(); i++) {
-			String action = "A" + 1;
+			String action = "A" + (i+1);
 			Float result = risultato.get(i);
 		
-			System.out.println("" + i + ") P(" + action + ") = " + result);
+			System.out.println("" + (i+1) + ") P(" + action + ") = " + result);
 		}
 	}
 }
