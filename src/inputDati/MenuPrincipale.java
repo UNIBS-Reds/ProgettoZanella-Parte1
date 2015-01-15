@@ -332,9 +332,9 @@ public class MenuPrincipale {
 				Diagnosi d = new Diagnosi(ts, true);
 				ProbabilitaMetodo1.stampaRisultati(d.eseguiDiagnosiMetodo1());
 				ProbabilitaMetodo2.stampaRisultati(d.eseguiDiagnosiMetodo2());
-				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo1() );
-				//OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo2() );
-				//Distanze distanza = new Distanze(OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo1()), OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo2()));
+				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo1(), 1 );
+				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo2(), 2 );
+				//Distanze distanza = new Distanze(OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo1(), 1), OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo2(), 2) );
 			}
 		}
 	}

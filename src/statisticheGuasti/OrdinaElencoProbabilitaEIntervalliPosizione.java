@@ -19,9 +19,11 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	 *
 	 * @return the vector
 	 */
-	public static Vector<Tupla> elencoProbabilitaOrdinatoSenzaDoppioni(Vector<Float> probabilitaTestSuite)
+	public static Vector<Tupla> elencoProbabilitaOrdinatoSenzaDoppioni(Vector<Float> probabilitaTestSuite, int metodo)
 	{
-		return RimuoviDoppioniElencoProbabilitaOrdinato(OrdinaElencoProbabilita(ElencoProbabilita(probabilitaTestSuite) ) );
+		Vector<Tupla> risultato = RimuoviDoppioniElencoProbabilitaOrdinato(OrdinaElencoProbabilita(ElencoProbabilita(probabilitaTestSuite) ) );
+		ToString(risultato, metodo);
+		return risultato;
 	}
 	
 	/**
@@ -96,11 +98,9 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 			
 			for ( int i = tupleDaEliminare.size() - 1; i >= 0; i--)
 			{
-				System.out.println(tupleDaEliminare.get(i) );
 				int daEliminare = tupleDaEliminare.get(i);
 				elencoProbabilita.remove(daEliminare);
-			}
-			System.out.println("asdasdaads");			
+			}			
 			
 		return elencoProbabilita;
 	}
@@ -111,12 +111,12 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	 *
 	 * @return the vector
 	 */
-	public static Vector<int[]> IntervalliiPosizione(Vector<Float> probabilitaTestSuite)
+	public static Vector<int[]> IntervalliiPosizione(Vector<Float> probabilitaTestSuite, int metodo)
 	{
 		Vector<int[]> intervalliPosizione = new Vector<int[]>();
 		Vector<Integer> azioniOrdinatePerProbabilita = new Vector<Integer>();
 		
-		Vector<Tupla> elencoProbabilitaOrdinatoSenzaDoppioni = elencoProbabilitaOrdinatoSenzaDoppioni(probabilitaTestSuite);
+		Vector<Tupla> elencoProbabilitaOrdinatoSenzaDoppioni = elencoProbabilitaOrdinatoSenzaDoppioni(probabilitaTestSuite, metodo);
 		
 		int posizione = 1;
 		for (int i = 0; i < elencoProbabilitaOrdinatoSenzaDoppioni.size(); i++)
@@ -148,5 +148,18 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 		return intervalliPosizioneOrdinatiPerAzione;
 	}
 	
+	public static void ToString(Vector<Tupla> elencoProbabilita, int metodo) 
+	{
+		System.out.println("ELENCO PROBABILITA' METODO " + metodo + " ORDINATO");
+		for(int i=0; i<elencoProbabilita.size(); i++) {
+			System.out.print("Azioni: ");
+			for (int j = 0; j < elencoProbabilita.get(i).getListaAzioni().size(); j++)
+			{
+				System.out.print(elencoProbabilita.get(i).getListaAzioni().get(j) + " ");
+			}
+		
+			System.out.println("| Probabilita': " + elencoProbabilita.get(i).getProbabilita() );
+		}
+	}
 	
 }
