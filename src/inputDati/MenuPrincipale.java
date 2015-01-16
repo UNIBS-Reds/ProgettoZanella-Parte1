@@ -334,7 +334,9 @@ public class MenuPrincipale {
 				Diagnosi d = new Diagnosi(ts, true);
 				ProbabilitaMetodo1.stampaRisultati(d.eseguiDiagnosiMetodo1());
 				ProbabilitaMetodo2.stampaRisultati(d.eseguiDiagnosiMetodo2());
-				Distanze distanze = new Distanze(OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo1(), 1), OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo2(), 2) );
+				OrdinaElencoProbabilitaEIntervalliPosizione elenco1 = new OrdinaElencoProbabilitaEIntervalliPosizione( d.eseguiDiagnosiMetodo1(), 1 );
+				OrdinaElencoProbabilitaEIntervalliPosizione elenco2 = new OrdinaElencoProbabilitaEIntervalliPosizione( d.eseguiDiagnosiMetodo2(), 2 ); 
+				Distanze distanze = new Distanze(elenco1.IntervalliiPosizione(), elenco2.IntervalliiPosizione() );
 				ts.setDistanze(distanze);
 			}
 		}
