@@ -67,9 +67,11 @@ public class MenuPrincipale {
 	public final static String MSG_SOVRASCRIVI_REPORT = "Attenzione, esiste gia' un Report inserito. Si desidera sostituirlo?";
 	public final static String MSG_REPORT_INESISTENTE = "Errore. Nessun Report inserito";
 	public final static String MSG_INSERIMENTO_REPORT_ANNULLATO = "Inserimento Report annulato.";
-	public final static String MSG_SALVATAGGIO_REPORT = "Si desidera salvare il Report in un file di testo?";
+	public final static String MSG_SALVATAGGIO_REPORT = "Si desidera salvare il Report?";
 	public final static String MSG_VISUALIZZA_REPORT = "Si desidera visualizzare il report inserito?";
-	public final static String MSG_REPORT_SALVATO = "Il Report e' stato salvato correttamente ed e' stato creato il file di testo %s";
+	public final static String MSG_REPORT_SALVATO = "Il Report e' stato salvato correttamente";
+	private static final String MSG_SALVATAGGIO_TESTO_REPORT = "Si desidera salvare il Report in un file di testo?";
+	private static final String MSG_REPORT_SALVATO_TESTO = "Il Report e' stato salvato correttamente ed e' stato creato il file di testo %s";
 	
 	/** Costanti stringa per l'opzione caricamento */
 	public final static String MSG_TITOLO_MENU_CARICAMENTO = "MENU' GESTIONE CARICAMENTO\n\nCosa si desidera fare?";
@@ -195,12 +197,12 @@ public class MenuPrincipale {
 			else 
 				esci = true;
 				
-		//Se l'utente non ha rifiutato di sovrascrivere il vecchio modello, ne crea uno nuovo.
+		//Se l'utente ha accettato di sovrascrivere il vecchio modello, ne crea uno nuovo.
 		if(!esci) {
 			Modello.getInstance().setNome(Util.leggiStringPiena(MSG_NOME_MODELLO));
 			Modello.getInstance().setDescrizione(Util.leggiStringPiena(MSG_DESCRIZIONE_MODELLO));
-			Modello.getInstance().addToElencoEntita(new NodoIniziale());
-			Modello.getInstance().getGm().gestisciMenuInserimentoPrimario();
+			Modello.getInstance().addEntita(new NodoIniziale());
+			Modello.getInstance().getGm().menuInserimentoPrimario();
 		}
 	}
 	
@@ -332,8 +334,6 @@ public class MenuPrincipale {
 				Diagnosi d = new Diagnosi(ts, true);
 				ProbabilitaMetodo1.stampaRisultati(d.eseguiDiagnosiMetodo1());
 				ProbabilitaMetodo2.stampaRisultati(d.eseguiDiagnosiMetodo2());
-				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo1(), 1 );
-				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo2(), 2 );
 				Distanze distanza = new Distanze(OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo1(), 1), OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo2(), 2) );
 			}
 		}
@@ -523,7 +523,7 @@ public class MenuPrincipale {
 		{
 			Report.cambiaReport(repCaricato);
 			if(repCaricato!=null) {
-				System.out.println(String.format(MSG_REPORT_CARICATO,repCaricato.getNomeReport()));
+				System.out.println(String.format(MSG_REPORT_CARICATO,repCaricato.getNome()));
 				if(!(Modello.isNull()) && !(TestSuite.isNull())) {
 					if(!Modello.getInstance().getNome().equals(repCaricato.getModello().getNome()) || !TestSuite.getInstance().isEqual(repCaricato.getTS())) 
 						System.out.println(MSG_SEGNALAZIONE_REPORT);
