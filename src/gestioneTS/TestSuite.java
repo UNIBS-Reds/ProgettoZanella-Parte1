@@ -2,9 +2,11 @@
  * @author Pietro Rossi, Lorenzo Rubagotti, Cristian Sampietri
  */
 package gestioneTS;
+
 import java.io.Serializable;
 
 import gestioneModello.Modello;
+import statisticheGuasti.Distanze;
 import utilita.GUI;
 
 import java.util.Vector;
@@ -31,6 +33,8 @@ public class TestSuite implements Serializable {
 	
 	/** Il Modello relativo al Test Suite */
 	private Modello mod;
+	
+	private Distanze dist;
 	
 	/** L'istanza unica di Test Suite */
 	private static TestSuite instance = null;
@@ -125,6 +129,10 @@ public class TestSuite implements Serializable {
 		return diag;
 	}
 	
+	
+	public Distanze getDistanze() {
+		return dist;
+	}
 	/**
 	 * Fornisce il modello relativo al Test Suite
 	 *
@@ -166,6 +174,10 @@ public class TestSuite implements Serializable {
 	 */
 	public void setDiagnosi(Diagnosi d) {
 		diag = d;
+	}
+	
+	public void setDistanze(Distanze di) {
+		dist = di;
 	}
 	
 	/**

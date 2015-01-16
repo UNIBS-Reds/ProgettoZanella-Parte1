@@ -8,6 +8,8 @@ import gestioneTS.TestSuite;
 
 import java.io.Serializable;
 
+import statisticheGuasti.Distanze;
+
 /**
  * Classe Report.
  * Un'istanza della classe Report e' una struttura contenente tutti i dati 
@@ -36,6 +38,8 @@ public class Report implements Serializable{
 	/** La diagnosi */
 	private Diagnosi diag;
 	
+	private Distanze dist;
+	
 /** L'istanza unica di Report */
 private static Report instance = null;
 	
@@ -49,6 +53,7 @@ private static Report instance = null;
 		mod = _mod;
 		ts = _ts;
 		diag = ts.getDiagnosi();
+		dist = ts.getDistanze();
 	}
 	
 	/**
@@ -153,6 +158,8 @@ private static Report instance = null;
 		risultato.append(ts.toString()+"\n\n");
 		risultato.append("INSIEME DELLE DIAGNOSI MINIMALI" + "\n");
 		risultato.append(diag.toString() + "\n");
+		risultato.append("CALCOLO DELLE DISTANZE" + "\n");
+		risultato.append(dist.toString() + "\n");
 		return risultato.toString();
 	}
 }

@@ -78,7 +78,7 @@ public class Distanze {
 			}
 		}
 		
-		
+		System.out.println("\nRISULTATO DISTANZE");
 		System.out.print(toString());
 		
 		return risultatoDistanze;
@@ -132,7 +132,6 @@ public class Distanze {
 	
 	public String toString() {
 		StringBuffer risultato = new StringBuffer();
-		risultato.append("\nELENCO DISTANZE\n");
 		risultato.append(stampaRisultatoDistanze());
 		risultato.append(stampaDistanzaTotale());
 		risultato.append(stampaDistanzaMedia());
