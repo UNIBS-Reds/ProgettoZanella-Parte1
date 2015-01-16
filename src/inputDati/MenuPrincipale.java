@@ -344,7 +344,7 @@ public class MenuPrincipale {
 		}
 	}
 	
-	/**
+		/**
 	 * Creazione report (opzione 6)
 	 */
 	private static void creazioneReport() {
@@ -353,11 +353,12 @@ public class MenuPrincipale {
 		if(Modello.isNull() || TestSuite.isNull())
 			System.out.println(MSG_ERRORE_REPORT_1);
 		else {
-			// Se il Test Suite non ha una diagnosi associata, viene stampato un messaggio d'errore ed il metodo si arresta.
-			// Viene inoltre impedita la creazione del report se il Test Suite attuale non e' corrispondente al modello attuale.
-			if(!TestSuite.getInstance().hasDiagnosi() || !(TestSuite.getInstance().getModello().isEqual(Modello.getInstance())))
+			Modello modCorrente = Modello.getInstance();
+			TestSuite tsCorrente = TestSuite.getInstance();
+			// Se il Test Suite non ha almeno una diagnosi associata, viene stampato un messaggio d'errore ed il metodo si arresta.
+			// Viene inoltre impedita la creazione del report se il Test Suite attuale non ÃƒÆ’Ã‚Â¨ corrispondente al modello attuale.
+			if(!tsCorrente.hasDiagnosi() || !(tsCorrente.getModello().isEqual(modCorrente)))
 				System.out.println(MSG_ERRORE_REPORT_2);
-			//Caso corretto (modello, ts e diagnosi presenti)
 			else {
 				Report nuovo;
 				boolean esci = false;
@@ -370,28 +371,20 @@ public class MenuPrincipale {
 					}	
 				// Si prosegue se l'utente non ha rifiutato di sovrascrivere un eventuale report gia' presente.
 				if(esci == false) {
-					String nomeReport = Util.leggiString(MSG_NOME_REPORT);
-					nuovo = Report.getInstance(Modello.getInstance(),TestSuite.getInstance());
+					String nomeReport = Util.leggiString(MSG_NOME_REPORT) + ".txt";
+					nuovo = Report.getInstance(modCorrente,tsCorrente);
 					nuovo.setNome(nomeReport);
 					boolean salvataggioSiNo = Util.yesOrNo(MSG_SALVATAGGIO_REPORT);
 					if(salvataggioSiNo) {
-						File nomeFile = new File(nomeReport);
-						Stream.salvaFile(nomeFile, nuovo, true);
+						Stream.scriviSuFile(nomeReport, nuovo.toString());
 						System.out.println(String.format(MSG_REPORT_SALVATO,nomeReport));
-					}
-					boolean salvataggioFileTestoSiNo = Util.yesOrNo(MSG_SALVATAGGIO_TESTO_REPORT);
-					if(salvataggioFileTestoSiNo) {
-						String nomeFileTesto = nomeReport + ".txt";
-						Stream.scriviSuFile(nomeFileTesto, nuovo.toString());
-						System.out.println(String.format(MSG_REPORT_SALVATO_TESTO,nomeReport));
-					}	
+					}					
 					boolean visualizzaSiNo = Util.yesOrNo(MSG_VISUALIZZA_REPORT);
 					if(visualizzaSiNo)
 						System.out.println(nuovo.toString());
 				}
 			}
 		}
-
 	}
 
 	/**
@@ -524,16 +517,14 @@ public class MenuPrincipale {
 			else
 				System.out.println(MSG_CARICAMENTO_ANNULLATO);
 		}
+		Modello modCorrente = Modello.getInstance();
+		TestSuite tsCorrente = TestSuite.getInstance();
 		if(sovrascriviReport || repCorrente == null)
 		{
 			Report.cambiaReport(repCaricato);
 			if(repCaricato!=null) {
 				System.out.println(String.format(MSG_REPORT_CARICATO,repCaricato.getNome()));
-				if(!(Modello.isNull()) && !(TestSuite.isNull())) {
-					if(!Modello.getInstance().getNome().equals(repCaricato.getModello().getNome()) || !TestSuite.getInstance().isEqual(repCaricato.getTS())) 
-						System.out.println(MSG_SEGNALAZIONE_REPORT);
-				}
-				else if(!Modello.isNull() && !Modello.getInstance().getNome().equals(repCaricato.getModello().getNome()))
+				if(!modCorrente.getNome().equals(repCaricato.getModello().getNome()) || !tsCorrente.isEqual(repCaricato.getTS()))
 					System.out.println(MSG_SEGNALAZIONE_REPORT);
 			}
 		}
