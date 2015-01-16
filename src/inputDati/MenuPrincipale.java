@@ -334,7 +334,7 @@ public class MenuPrincipale {
 				ProbabilitaMetodo2.stampaRisultati(d.eseguiDiagnosiMetodo2());
 				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo1(), 1 );
 				OrdinaElencoProbabilitaEIntervalliPosizione.elencoProbabilitaOrdinatoSenzaDoppioni(d.eseguiDiagnosiMetodo2(), 2 );
-				//Distanze distanza = new Distanze(OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo1(), 1), OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo2(), 2) );
+				Distanze distanza = new Distanze(OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo1(), 1), OrdinaElencoProbabilitaEIntervalliPosizione.IntervalliiPosizione(d.eseguiDiagnosiMetodo2(), 2) );
 			}
 		}
 	}

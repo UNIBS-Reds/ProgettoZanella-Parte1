@@ -122,27 +122,36 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 		for (int i = 0; i < elencoProbabilitaOrdinatoSenzaDoppioni.size(); i++)
 		{
 			int[] posizioni = new int[2];
-			posizione += i;
+			if (i > 0)
+				posizione++;
 			posizioni[0]= posizione;
 			posizione += elencoProbabilitaOrdinatoSenzaDoppioni.get(i).getListaAzioni().size() - 1;
 			posizioni[1]= posizione;
 			for (int j = 0; j < elencoProbabilitaOrdinatoSenzaDoppioni.get(i).getListaAzioni().size(); j++)
 				{
 				intervalliPosizione.add(posizioni);
-				azioniOrdinatePerProbabilita.add(elencoProbabilitaOrdinatoSenzaDoppioni.get(j).getListaAzioni().get(j) );
+				azioniOrdinatePerProbabilita.add(elencoProbabilitaOrdinatoSenzaDoppioni.get(i).getListaAzioni().get(j) );
 				}
 		}
 		
 		Vector<int[]> intervalliPosizioneOrdinatiPerAzione = new Vector<int[]>();
 		for (int i = 0; i < azioniOrdinatePerProbabilita.size(); i++)
 		{
+			int posizioneAzioneMinima = i;
 			int azioneMinima = azioniOrdinatePerProbabilita.get(i);
 			for (int j = i + 1; j < azioniOrdinatePerProbabilita.size(); j++)
 			{
 				if (azioneMinima > azioniOrdinatePerProbabilita.get(j) )
+					{
 					azioneMinima = azioniOrdinatePerProbabilita.get(j);
+					posizioneAzioneMinima = j;
+					}
 			}
-			intervalliPosizioneOrdinatiPerAzione.add(intervalliPosizione.get(azioneMinima) );
+			intervalliPosizioneOrdinatiPerAzione.add(intervalliPosizione.get(posizioneAzioneMinima) );
+			azioniOrdinatePerProbabilita.remove(posizioneAzioneMinima);
+			intervalliPosizione.remove(posizioneAzioneMinima);
+			i = -1
+					;
 		}
 		
 		return intervalliPosizioneOrdinatiPerAzione;
