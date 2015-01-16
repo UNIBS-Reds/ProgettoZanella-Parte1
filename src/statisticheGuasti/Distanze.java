@@ -35,6 +35,8 @@ public class Distanze {
 		this.vettoreMetodo1 = vettoreMetodo1;
 		this.vettoreMetodo2 = vettoreMetodo2;
 		risultatoDistanze = new Vector<Integer>();
+		
+		calcoloDistanze();
 	}
 	
 	/**
