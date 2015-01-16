@@ -46,8 +46,8 @@ public class Report implements Serializable{
 	/** Le distanze */
 	private Distanze dist;
 	
-/** L'istanza unica di Report */
-private static Report instance = null;
+	/** L'istanza unica di Report */
+	private static Report instance = null;
 	
 	/**
 	 * Costruttore della classe Report

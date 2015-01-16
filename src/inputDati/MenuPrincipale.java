@@ -70,9 +70,7 @@ public class MenuPrincipale {
 	public final static String MSG_SALVATAGGIO_REPORT = "Si desidera salvare il Report?";
 	public final static String MSG_VISUALIZZA_REPORT = "Si desidera visualizzare il report inserito?";
 	public final static String MSG_REPORT_SALVATO = "Il Report e' stato salvato correttamente";
-	private static final String MSG_SALVATAGGIO_TESTO_REPORT = "Si desidera salvare il Report in un file di testo?";
-	private static final String MSG_REPORT_SALVATO_TESTO = "Il Report e' stato salvato correttamente ed e' stato creato il file di testo %s";
-	
+		
 	/** Costanti stringa per l'opzione caricamento */
 	public final static String MSG_TITOLO_MENU_CARICAMENTO = "MENU' GESTIONE CARICAMENTO\n\nCosa si desidera fare?";
 	public static final String MSG_CARICA_MODELLO = "1 - Carica un modello esistente";
@@ -344,7 +342,7 @@ public class MenuPrincipale {
 		}
 	}
 	
-		/**
+   /**
 	 * Creazione report (opzione 6)
 	 */
 	private static void creazioneReport() {
@@ -430,20 +428,22 @@ public class MenuPrincipale {
 		modelloCaricato = (Modello) Stream.caricaFile(nomeFile, modelloCaricato);
 		Modello modCorrente;
 		boolean sovrascriviModello = false;
-		if(Modello.isNull())
-			modCorrente = null;
-		else {
-			modCorrente = Modello.getInstance();
-			if(Util.yesOrNo(MSG_SOVRASCRIVI_MODELLO))
-				sovrascriviModello = true;
-			else
-				System.out.println(MSG_CARICAMENTO_ANNULLATO);
-		}
-		if(sovrascriviModello || modCorrente == null)
-		{
-			Modello.cambiaModello(modelloCaricato);
-			if(modelloCaricato!=null)
-				System.out.println(String.format(MSG_MODELLO_CARICATO,modelloCaricato.getNome()));
+		if(modelloCaricato!=null) {
+			if(Modello.isNull())
+				modCorrente = null;
+			else {
+				modCorrente = Modello.getInstance();
+				if(Util.yesOrNo(MSG_SOVRASCRIVI_MODELLO))
+					sovrascriviModello = true;
+				else
+					System.out.println(MSG_CARICAMENTO_ANNULLATO);
+			}
+			if(sovrascriviModello || modCorrente == null)
+			{
+				Modello.cambiaModello(modelloCaricato);
+				if(modelloCaricato!=null)
+					System.out.println(String.format(MSG_MODELLO_CARICATO,modelloCaricato.getNome()));
+			}
 		}
 	}
 	
@@ -470,7 +470,6 @@ public class MenuPrincipale {
 				Modello modTS = tsCaricato.getModello();			
 				if(TestSuite.isNull()) {     //Se non c'e' inserito alcun ts carica quello specificato nel nome del file, sse e' concorde col modello 
 					if(modTS.isEqual(modCorrente) ) {   //Se i modelli coincidono effettua con successo il caricamento.
-						TestSuite.cambiaTestSuite(tsCaricato);
 						System.out.println(MSG_CARICAMENTO_OK);
 					}
 					else {    //Se il modello non e' coerente con quello del TS stampa a video un warning e carica il modello del TS
@@ -478,6 +477,7 @@ public class MenuPrincipale {
 						Modello.cambiaModello(modTS);    
 						System.out.println(String.format(MSG_MODELLO_CARICATO,modTS.getNome()));   
 					}
+					TestSuite.cambiaTestSuite(tsCaricato);
 				}
 				else {   //Se c'e' gia' un TS inserito lo fa sovrascrivere, ma controlla che sia coerente il suo modello col modello inserito
 					if(Util.yesOrNo(MSG_SOVRASCRIVI_TS)) {
