@@ -336,7 +336,9 @@ public class MenuPrincipale {
 				ProbabilitaMetodo2.stampaRisultati(d.eseguiDiagnosiMetodo2());
 				OrdinaElencoProbabilitaEIntervalliPosizione elenco1 = new OrdinaElencoProbabilitaEIntervalliPosizione( d.eseguiDiagnosiMetodo1(), 1 );
 				OrdinaElencoProbabilitaEIntervalliPosizione elenco2 = new OrdinaElencoProbabilitaEIntervalliPosizione( d.eseguiDiagnosiMetodo2(), 2 ); 
-				Distanze distanze = new Distanze(elenco1.IntervalliiPosizione(), elenco2.IntervalliiPosizione() );
+				ts.setElencoProb1(elenco1);
+				ts.setElencoProb2(elenco2);
+				Distanze distanze = new Distanze(elenco1.intervalliiPosizione(), elenco2.intervalliiPosizione() );
 				ts.setDistanze(distanze);
 			}
 		}

@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 import gestioneModello.Modello;
 import statisticheGuasti.Distanze;
+import statisticheGuasti.OrdinaElencoProbabilitaEIntervalliPosizione;
 import utilita.GUI;
 
 import java.util.Vector;
@@ -34,6 +35,11 @@ public class TestSuite implements Serializable {
 	/** Il Modello relativo al Test Suite */
 	private Modello mod;
 	
+	/** Gli elenchi delle probabilita' */
+	private OrdinaElencoProbabilitaEIntervalliPosizione elencoProb1;
+	private OrdinaElencoProbabilitaEIntervalliPosizione elencoProb2;
+	
+	/** Le distanze */
 	private Distanze dist;
 	
 	/** L'istanza unica di Test Suite */
@@ -129,6 +135,13 @@ public class TestSuite implements Serializable {
 		return diag;
 	}
 	
+	public OrdinaElencoProbabilitaEIntervalliPosizione getElencoProb1() {
+		return elencoProb1;
+	}
+	
+	public OrdinaElencoProbabilitaEIntervalliPosizione getElencoProb2() {
+		return elencoProb2;
+	}
 	
 	public Distanze getDistanze() {
 		return dist;
@@ -176,6 +189,14 @@ public class TestSuite implements Serializable {
 		diag = d;
 	}
 	
+	public void setElencoProb1(OrdinaElencoProbabilitaEIntervalliPosizione elenco1) {
+		elencoProb1 = elenco1;		
+	}
+
+	public void setElencoProb2(OrdinaElencoProbabilitaEIntervalliPosizione elenco2) {
+		elencoProb2 = elenco2;		
+	}
+	
 	public void setDistanze(Distanze di) {
 		dist = di;
 	}
@@ -198,4 +219,5 @@ public class TestSuite implements Serializable {
 		}
 		return risultato.toString();
 	}
+	
 }

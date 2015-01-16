@@ -9,6 +9,7 @@ import gestioneTS.TestSuite;
 import java.io.Serializable;
 
 import statisticheGuasti.Distanze;
+import statisticheGuasti.OrdinaElencoProbabilitaEIntervalliPosizione;
 
 /**
  * Classe Report.
@@ -34,10 +35,15 @@ public class Report implements Serializable{
 	
 	/** Il Test Suite in base al quale viene generato il Report */
 	private TestSuite ts;
-	
+		
 	/** La diagnosi */
 	private Diagnosi diag;
 	
+	/** Gli elenchi delle probabilita' */
+	private OrdinaElencoProbabilitaEIntervalliPosizione elencoProb1;
+	private OrdinaElencoProbabilitaEIntervalliPosizione elencoProb2;
+	
+	/** Le distanze */
 	private Distanze dist;
 	
 /** L'istanza unica di Report */
@@ -53,6 +59,8 @@ private static Report instance = null;
 		mod = _mod;
 		ts = _ts;
 		diag = ts.getDiagnosi();
+		elencoProb1 = ts.getElencoProb1();
+		elencoProb1 = ts.getElencoProb2();
 		dist = ts.getDistanze();
 	}
 	
@@ -158,6 +166,9 @@ private static Report instance = null;
 		risultato.append(ts.toString()+"\n\n");
 		risultato.append("INSIEME DELLE DIAGNOSI MINIMALI" + "\n");
 		risultato.append(diag.toString() + "\n");
+		risultato.append("ELENCHI DELLE PROBABILITA'" + "\n");
+		risultato.append(elencoProb1.toString() + "\n");
+		risultato.append(elencoProb2.toString() + "\n");
 		risultato.append("CALCOLO DELLE DISTANZE" + "\n");
 		risultato.append(dist.toString() + "\n");
 		return risultato.toString();
