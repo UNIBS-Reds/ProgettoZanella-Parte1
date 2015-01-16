@@ -73,6 +73,8 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 				temp = elencoProbabilitaT.get(i);
 				elencoProbabilitaT.set(i, tuplaConProbabilitaMassima);
 				elencoProbabilitaT.set(iMax, temp);
+				
+				
 				}
 		return elencoProbabilitaT;
 	}
@@ -89,11 +91,17 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 		Vector<Integer> tupleDaEliminare = new Vector<Integer>();
 			for (int j = 0; j < elencoProbabilita.size() - 1; j++)
 			{
-				if (elencoProbabilita.get(j).getProbabilita() == elencoProbabilita.get(j+1).getProbabilita() )
-				{
-					elencoProbabilita.get(j).getListaAzioni().add(elencoProbabilita.get(j+1).getListaAzioni().get(0) );
-					tupleDaEliminare.add(j+1);
-				}
+				for (int k = j+1; k < elencoProbabilita.size(); k++)
+					if (elencoProbabilita.get(j).getProbabilita() == elencoProbabilita.get(k).getProbabilita() )
+					{
+						elencoProbabilita.get(j).getListaAzioni().add(elencoProbabilita.get(k).getListaAzioni().get(0) );
+						boolean tuplaDaEliminarePresente = false;
+						for (int t = 0; t < tupleDaEliminare.size(); t++)
+							if (k == tupleDaEliminare.get(t) )
+								tuplaDaEliminarePresente = true;
+						if(!tuplaDaEliminarePresente)
+						tupleDaEliminare.add(k);
+					}
 			}
 			
 			for ( int i = tupleDaEliminare.size() - 1; i >= 0; i--)
