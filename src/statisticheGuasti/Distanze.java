@@ -3,6 +3,7 @@
  */
 package statisticheGuasti;
 
+import java.io.Serializable;
 import java.util.Vector;
 
 import gestioneModello.Azione;
@@ -11,7 +12,10 @@ import gestioneModello.Modello;
 /**
  * The Class Distanze.
  */
-public class Distanze {
+public class Distanze implements Serializable{
+
+	/** La costanteserialVersionUID. */
+	private static final long serialVersionUID = 1L;
 
 	/** The vettore metodo1. */
 	private Vector<int[]> vettoreMetodo1;
