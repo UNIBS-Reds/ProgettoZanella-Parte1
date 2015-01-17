@@ -38,7 +38,6 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	public Vector<Tupla> elencoProbabilitaOrdinatoSenzaDoppioni()
 	{
 		elencoProbabilita = rimuoviDoppioniElencoProbabilitaOrdinato(ordinaElencoProbabilita(elencoProbabilita(probabilitaTestSuite) ) );
-		toString();
 		return elencoProbabilita;
 	}
 	
@@ -189,15 +188,15 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	public StringBuffer stampaOrdinaElencoProbabilita() 
 	{
 		StringBuffer risultato = new StringBuffer();
-		risultato.append("ELENCO PROBABILITA' METODO " + metodo + " ORDINATO");
+		risultato.append("ELENCO PROBABILITA' METODO " + metodo + " ORDINATO \n");
 		for(int i=0; i<elencoProbabilita.size(); i++) {
-			risultato.append("Azioni: ");
+			risultato.append("\nAzioni: ");
 			for (int j = 0; j < elencoProbabilita.get(i).getListaAzioni().size(); j++)
 			{
 				risultato.append(elencoProbabilita.get(i).getListaAzioni().get(j) + " ");
 			}
 		
-			risultato.append("| Probabilita': " + elencoProbabilita.get(i).getProbabilita() );
+			risultato.append("| Probabilita': " + elencoProbabilita.get(i).getProbabilita() + "\n" );
 		}
 		return risultato;
 	}
