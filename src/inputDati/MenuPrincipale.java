@@ -355,7 +355,7 @@ public class MenuPrincipale {
 			TestSuite tsCorrente = TestSuite.getInstance();
 			// Se il Test Suite non ha almeno una diagnosi associata, viene stampato un messaggio d'errore ed il metodo si arresta.
 			// Viene inoltre impedita la creazione del report se il Test Suite attuale non ÃƒÆ’Ã‚Â¨ corrispondente al modello attuale.
-			if(!tsCorrente.hasDiagnosi() || !(tsCorrente.getModello().isEqual(modCorrente)))
+			if(!tsCorrente.hasDiagnosi() || !tsCorrente.hasProbabilitaDistanze() || !(tsCorrente.getModello().isEqual(modCorrente)))
 				System.out.println(MSG_ERRORE_REPORT_2);
 			else {
 				Report nuovo;

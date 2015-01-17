@@ -5,9 +5,7 @@ package gestioneReport;
 import gestioneModello.Modello;
 import gestioneTS.Diagnosi;
 import gestioneTS.TestSuite;
-
 import java.io.Serializable;
-
 import statisticheGuasti.Distanze;
 import statisticheGuasti.OrdinaElencoProbabilitaEIntervalliPosizione;
 
@@ -60,7 +58,7 @@ public class Report implements Serializable{
 		ts = _ts;
 		diag = ts.getDiagnosi();
 		elencoProb1 = ts.getElencoProb1();
-		elencoProb1 = ts.getElencoProb2();
+		elencoProb2 = ts.getElencoProb2();
 		dist = ts.getDistanze();
 	}
 	

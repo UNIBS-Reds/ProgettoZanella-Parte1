@@ -168,6 +168,18 @@ public class TestSuite implements Serializable {
 	}
 	
 	/**
+	 * Controlla se il Test Suite ha associate le probabilita' e le distanze.
+	 * 
+	 * @return true, se le probabilita' e le distanze sono null, false altrimenti
+	 */
+	public boolean hasProbabilitaDistanze() {
+		if(elencoProb1 == null || elencoProb2 == null || dist == null)
+			return false;
+		else
+			return true;
+	}
+	
+	/**
 	 * Confronta due Test Suite verificandone l'uguaglianza.
 	 * 
 	 * @param altro : il Test Suite con cui confrontare
