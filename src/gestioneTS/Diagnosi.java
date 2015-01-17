@@ -341,20 +341,4 @@ public class Diagnosi implements Serializable {
 		
 		return risultato.toString();
 	}
-	
-	/**
-	 * Stampa diagnosi.
-	 *
-	 * @param matrice the matrice
-	 *
-	public void stampaDiagnosi(int[][] matrice) {
-		for(int i=0; i<matrice.length; i++) {
-			for(int j=0; j<matrice[0].length; j++) {
-				
-				System.out.print(matrice[i][j]+"\t");
-			}
-			System.out.println("");
-		}
-		System.out.println("\n\n");
-	}*/
 }
