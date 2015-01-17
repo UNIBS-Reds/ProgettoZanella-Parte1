@@ -6,7 +6,6 @@ package utilita;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GUI.
  */

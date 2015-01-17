@@ -7,22 +7,21 @@ import gestioneTS.TestSuite;
 import java.util.Vector;
 import java.io.Serializable;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class ProbabilitaMetodo1.
+ * La classe ProbabilitaMetodo1.
  */
 public class ProbabilitaMetodo1 implements Serializable 
 {
 	
-	/** The Constant serialVersionUID. */
+	/** La costante serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Calcola probabilita.
 	 *
-	 * @param testSuite the test suite
-	 * @param vettoreRisultatiTestSuite the vettore risultati test suite
-	 * @return the vector
+	 * @param testSuite il test suite
+	 * @param vettoreRisultatiTestSuite il vettore risultati test suite
+	 * @return il vettore delle probabilita'
 	 */
 	public static Vector<Float> calcolaProbabilita (TestSuite testSuite, Vector<Vector<Integer>> vettoreRisultatiTestSuite)
 	{		
@@ -66,9 +65,9 @@ public class ProbabilitaMetodo1 implements Serializable
 	/**
 	 * Calcola probabilita classe.
 	 *
-	 * @param cardinalita the cardinalita
-	 * @param vettoreRisultatiClasse the vettore risultati classe
-	 * @return the vector
+	 * @param cardinalita la cardinalita'
+	 * @param vettoreRisultatiClasse il vettore risultati classe
+	 * @return il vettore delle probabilita' di una classe
 	 */
 	private static Vector<Integer> calcolaProbabilitaClasse (int cardinalita, Vector<Integer> vettoreRisultatiClasse)
 	{
@@ -80,6 +79,11 @@ public class ProbabilitaMetodo1 implements Serializable
 		return risultatoProbabilitaClasse;
 	}
 	
+	/**
+	 * Stampa i risultati.
+	 *
+	 * @param risultato il risultato da stampare
+	 */
 	public static void stampaRisultati(Vector<Float> risultato) {
 		System.out.println("RISULTATO PROBABILITA' CON METODO 1");
 		for(int i=0; i<risultato.size(); i++) {

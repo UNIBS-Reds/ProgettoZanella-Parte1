@@ -5,19 +5,23 @@ package statisticheGuasti;
 import java.io.Serializable;
 import java.util.Vector;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class OrdinaElencoProbabilitaEIntervalliPosizione.
  */
 public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 {
 	
-	/** The Constant serialVersionUID. */
+	/** La costante serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	private Vector<Float> probabilitaTestSuite;
 	private int metodo;
 	private Vector<Tupla> elencoProbabilita;
 	
+	/**
+	 * Fornisce l'istanza di OrdinaElencoProbabilitaEIntervalliPosizione.
+	 *
+	 * @return l'unica istanza OrdinaElencoProbabilitaEIntervalliPosizione
+	 */
 	public OrdinaElencoProbabilitaEIntervalliPosizione (Vector<Float> probabilitaTestSuite, int metodo)
 	{
 		this.probabilitaTestSuite = probabilitaTestSuite;
@@ -29,7 +33,7 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	/**
 	 * Elenco probabilita ordinato senza doppioni.
 	 *
-	 * @return the vector
+	 * @return il vettore elencoProbabilita' senza doppioni
 	 */
 	public Vector<Tupla> elencoProbabilitaOrdinatoSenzaDoppioni()
 	{
@@ -41,7 +45,7 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	/**
 	 * Elenco probabilita.
 	 *
-	 * @return the vector
+	 * @return il vettore elencoProbabilita di probabilitaTestSuite
 	 */
 	private Vector<Tupla> elencoProbabilita (Vector<Float> probabilitaTestSuite)
 	{
@@ -62,8 +66,8 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	/**
 	 * Ordina elenco probabilita.
 	 *
-	 * @param elencoProbabilita the elenco probabilita
-	 * @return the vector
+	 * @param elencoProbabilita l'elenco probabilita
+	 * @return il vettore elencoProbabilitaT, ovverto il vettore elencoProbabilita ordinato
 	 */
 	private Vector<Tupla> ordinaElencoProbabilita(Vector<Tupla> elencoProbabilita)
 	{
@@ -94,8 +98,8 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	/**
 	 * Rimuovi doppioni elenco probabilita ordinato.
 	 *
-	 * @param elencoProbabilita the elenco probabilita
-	 * @return the vector
+	 * @param elencoProbabilita l'elenco probabilita da gestire
+	 * @return il vettore elencoProbabilita ordinato senza doppioni
 	 */
 	private Vector<Tupla> rimuoviDoppioniElencoProbabilitaOrdinato(Vector<Tupla> elencoProbabilita)
 	{
@@ -129,7 +133,7 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	/**
 	 * Intervalli posizione.
 	 *
-	 * @return the vector
+	 * @return il vettore degli intervalli posizione
 	 */
 	public Vector<int[]> intervalliiPosizione()
 	{
@@ -177,6 +181,11 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 		return intervalliPosizioneOrdinatiPerAzione;
 	}
 	
+	/**
+	 * Stampa i risultati.
+	 *
+	 * @return ritorna il risultato da stampare via stringbuffer
+	 */
 	public StringBuffer stampaOrdinaElencoProbabilita() 
 	{
 		StringBuffer risultato = new StringBuffer();
@@ -192,6 +201,12 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 		}
 		return risultato;
 	}
+	
+	/**
+	 * Stampa i risultati.
+	 *
+	 * @return ritorna il risultato da stampare
+	 */
 	public String toString() {
 		StringBuffer risultato = new StringBuffer();
 		risultato.append(stampaOrdinaElencoProbabilita() );

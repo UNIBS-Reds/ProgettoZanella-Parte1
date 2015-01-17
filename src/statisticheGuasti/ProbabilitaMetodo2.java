@@ -8,9 +8,8 @@ import gestioneTS.TestSuite;
 import java.util.Vector;
 import java.io.Serializable;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class ProbabilitaMetodo2.
+ * La classe ProbabilitaMetodo2.
  */
 public class ProbabilitaMetodo2 implements Serializable
 {
@@ -21,9 +20,9 @@ public class ProbabilitaMetodo2 implements Serializable
 	/**
 	 * Calcola probabilita.
 	 *
-	 * @param testSuite the test suite
-	 * @param matriceRisultatiTestSuite the matrice risultati test suite
-	 * @return the vector
+	 * @param testSuite il test suite
+	 * @param matriceRisultatiTestSuite la matrice risultati test suite
+	 * @return il  vettore delle probabilita'
 	 */
 	public static Vector<Float> calcolaProbabilita (TestSuite testSuite, int[][] matriceRisultatiTestSuite)
 	{
@@ -54,6 +53,11 @@ public class ProbabilitaMetodo2 implements Serializable
 		return risultato;
 	}
 	
+	/**
+	 * Stampa i risultati.
+	 *
+	 * @param risultato il risultato da stampare
+	 */
 	public static void stampaRisultati(Vector<Float> risultato) {
 		System.out.println("RISULTATO PROBABILITA' CON METODO 2");
 		for(int i=0; i<risultato.size(); i++) {
