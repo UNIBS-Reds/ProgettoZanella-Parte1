@@ -162,7 +162,6 @@ public class Report implements Serializable{
 		risultato.append(mod.toString()+"\n\n");
 		risultato.append("TEST SUITE" + "\n" + "-----------------" + "\n");
 		risultato.append(ts.toString()+"\n\n");
-		risultato.append("INSIEME DELLE DIAGNOSI MINIMALI" + "\n");
 		risultato.append(diag.toString() + "\n");
 		risultato.append("ELENCHI DELLE PROBABILITA'" + "\n");
 		risultato.append(elencoProb1.toString() + "\n");
