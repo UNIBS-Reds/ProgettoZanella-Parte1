@@ -196,7 +196,7 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 				risultato.append(elencoProbabilita.get(i).getListaAzioni().get(j) + " ");
 			}
 		
-			risultato.append("| Probabilita': " + elencoProbabilita.get(i).getProbabilita() + "\n" );
+			risultato.append("| Probabilita': " + elencoProbabilita.get(i).getProbabilita() );
 		}
 		return risultato;
 	}
