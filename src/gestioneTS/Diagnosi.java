@@ -342,39 +342,6 @@ public class Diagnosi implements Serializable {
 		return risultato.toString();
 	}
 	
-	/*public void stampaDiagnosi1(int i, ClasseEquivalenza classe) {		
-		System.out.println("DIAGNOSI METODO 1");
-		
-		
-		System.out.print("Diagnosi Minimali D" + i +" = {");
-		for(int dm=0; dm<risultatoAzioni.size(); dm++) {
-			if(risultatoAzioni.get(dm) == 1)
-				System.out.print("{" + elencoAzioni.get(dm).getNome() + "}");
-		}
-		System.out.println("}");
-		System.out.println("Cardinalita' D" + (i+1) + ": " + classe.getCardinalita() + "\n");		
-	}
-
-	public void stampaDiagnosi2() {
-		
-		System.out.println("\n\nDIAGNOSI METODO 2");
-		
-	}*/
-	
-	/*public String toString() {
-		
-		StringBuffer risultato = new StringBuffer();
-		risultato.append(MSG_DIAGNOSI_UTILIZZATA);
-		
-		for(int i=0; i<risultatoFinaleProbabilita.size(); i++) {
-			String action = elencoAzioni.get(i).getNome();
-			Float result = risultatoFinaleProbabilita.get(i);
-			
-			risultato.append(String.format(MSG_RISULTATO_PROBABILITA, i, action, result));
-		}  
-		return risultato.toString();
-	}*/
-	
 	/**
 	 * Stampa diagnosi.
 	 *
