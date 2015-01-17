@@ -8,7 +8,6 @@ import java.util.Vector;
 import gestioneModello.Azione;
 import gestioneModello.Modello;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Distanze.
  */

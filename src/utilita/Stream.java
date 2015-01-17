@@ -5,7 +5,6 @@ package utilita;
 
 import java.io.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Stream.
  */
