@@ -8,7 +8,6 @@ import java.io.Serializable;
 import gestioneModello.Modello;
 import statisticheGuasti.Distanze;
 import statisticheGuasti.OrdinaElencoProbabilitaEIntervalliPosizione;
-import utilita.GUI;
 
 import java.util.Vector;
 
@@ -24,7 +23,7 @@ public class TestSuite implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/** Costante per stampa a video */
-	public final static String MSG_INTESTAZIONE_TS = "\n\nTEST SUITE PER IL MODELLO %s\n\n";
+	public final static String MSG_INTESTAZIONE_TS = "\nTEST SUITE PER IL MODELLO %s\n";
 	
 	/** Vector con le classi di equivalenza che costituiscono il Test Suite. */
 	private Vector <ClasseEquivalenza> elencoClassi;
@@ -201,14 +200,29 @@ public class TestSuite implements Serializable {
 		diag = d;
 	}
 	
+	/**
+	 * Setta l'istanza di Probabilita'
+	 * 
+	 * @param elenco1 : l'elenco di probabilita' col metodo 1 
+	 */
 	public void setElencoProb1(OrdinaElencoProbabilitaEIntervalliPosizione elenco1) {
 		elencoProb1 = elenco1;		
 	}
-
+	
+	/**
+	 * Setta l'istanza di Probabilita'
+	 * 
+	 * @param elenco2 : l'elenco di probabilita' col metodo 2 
+	 */
 	public void setElencoProb2(OrdinaElencoProbabilitaEIntervalliPosizione elenco2) {
 		elencoProb2 = elenco2;		
 	}
 	
+	/**
+	 * Setta le distanze
+	 * 
+	 * @param di : le distanze 
+	 */
 	public void setDistanze(Distanze di) {
 		dist = di;
 	}
@@ -224,7 +238,7 @@ public class TestSuite implements Serializable {
 	
 	public String toString() {
 		StringBuffer risultato = new StringBuffer();
-		risultato.append(String.format(GUI.incorniciaStringa(MSG_INTESTAZIONE_TS), mod.getNome()));
+		risultato.append(String.format(MSG_INTESTAZIONE_TS, mod.getNome()));
 		for(int i=0; i<elencoClassi.size(); i++) {
 			risultato.append("\n\n");
 			risultato.append(String.format("- CLASSE DI EQUIVALENZA N.%d\n"+elencoClassi.elementAt(i).toString(),i+1));
