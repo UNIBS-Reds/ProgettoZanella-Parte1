@@ -157,11 +157,18 @@ public class Modello implements Entita{
 		return elencoAzioni.size();
 	}
 	
-	/** Restituisce l'istanza che gestisce l'inserimento delle entita' per il modello */
+	/** Restituisce l'istanza che gestisce l'inserimento delle entita' per il modello.
+	/*
+	 * @return gestore modello.
+	 */
 	public GestoreModello getGm() {
 		return gm;
 	}
 	
+	/** Restituisce il nome del modello.
+	/*
+	 * @return nome modello
+	 */
 	public String getNome() {
 		return nome;
 	}

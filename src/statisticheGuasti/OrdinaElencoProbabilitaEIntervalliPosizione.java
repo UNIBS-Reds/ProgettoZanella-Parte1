@@ -20,6 +20,8 @@ public class OrdinaElencoProbabilitaEIntervalliPosizione implements Serializable
 	/**
 	 * Fornisce l'istanza di OrdinaElencoProbabilitaEIntervalliPosizione.
 	 *
+	 * @param probabilitaTestSuite probabilitaTestSuite
+	 * @param metodo metodo
 	 */
 	public OrdinaElencoProbabilitaEIntervalliPosizione (Vector<Float> probabilitaTestSuite, int metodo)
 	{

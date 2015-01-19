@@ -65,6 +65,8 @@ public class Report implements Serializable{
 	/**
 	 * Fornisce l'istanza di Report.
 	 *
+	 * @param mod modello
+	 * @param ts test suite
 	 * @return l'unica istanza Report
 	 */
 	public static Report getInstance(Modello mod, TestSuite ts) {
